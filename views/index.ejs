@@ -4,8 +4,68 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Homepage</title>
+        <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+        <script defer type="module" src="../js/index.js"></script>
+        <style>
+            label,
+            input {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .display-none {
+                display: none;
+            }
+        </style>
     </head>
     <body>
-        <h1>Homepage</h1>
+        <h1>Discount Calculator</h1>
+
+        <article>
+            <!-- !form cont -->
+            <form id="form">
+                <!-- original price input -->
+                <label for="original-price">Original Price (£)</label>
+                <input
+                    id="original-price"
+                    required
+                    type="text"
+                    name="original-input"
+                />
+
+                <!-- discount input -->
+                <label for="discount-price">Discount (%)</label>
+                <input
+                    id="discount-price"
+                    required
+                    type="text"
+                    name="discount-input"
+                />
+
+                <!-- buttons -->
+                <button type="submit">Calculate</button>
+                <button id="clear-btn" type="button">Clear</button>
+            </form>
+
+            <!-- !no calculations yet (default) -->
+            <div id="no-calcs-cont" class="">
+                <h2>No calculations yet!</h2>
+            </div>
+
+            <!-- !results cont -->
+            <div id="results-cont" class="display-none">
+                <!-- new price -->
+                <div>
+                    <h2>New Price</h2>
+                    <p id="new-price"></p>
+                </div>
+
+                <!-- savings -->
+                <div>
+                    <h2>Savings</h2>
+                    <p id="savings-price"></p>
+                </div>
+            </div>
+        </article>
     </body>
 </html>
