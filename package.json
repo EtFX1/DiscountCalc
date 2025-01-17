@@ -1,0 +1,20 @@
+{
+    "dependencies": {
+        "better-sqlite3": "^11.8.0",
+        "ejs": "^3.1.10",
+        "express": "^4.21.2"
+    },
+    "name": "discountcalc",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "App app to find out how much the discount on an item would come to.",
+    "main": "server.js",
+    "devDependencies": {},
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node --watch --env-file=.env --inspect server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
