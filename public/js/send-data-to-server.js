@@ -1,3 +1,6 @@
+//-- Module description: Sends form to the server
+
+
 import { form } from "./calc-and-display-discount.js";
 export async function sendDataToServer() {
 
@@ -14,12 +17,11 @@ export async function sendDataToServer() {
         body: JSON.stringify({ originalInput, discountInput, discountResult })
     }
 
-
     try {
         const req = await fetch("http://localhost:3000/", requestObj);
 
         if (!req.ok) {
-            throw new Error("POST Request failed");
+            throw new Error("User data couldn't be sent to the server");
         }
     } catch (error) {
         console.log("Error sending data");
