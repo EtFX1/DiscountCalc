@@ -1,11 +1,14 @@
+import { inputValidated, validateInput } from "./validate-input.js";
+import { removeErrorMsgs, clearInput } from "./clearing-functions.js";
+
 const form = document.getElementById("form");
-const originalInputElem = document.getElementById("original-price");
-const discountInputElem = document.getElementById("discount-price");
+export const originalInputElem = document.getElementById("original-price");
+export const discountInputElem = document.getElementById("discount-price");
 const clearBtn = document.getElementById("clear-btn");
 
+
 //calculates the discount and cost savings
-const calculateAndDisplayDiscount = (event) => {
-    event.preventDefault();
+const calculateAndDisplayDiscount = () => {
 
     // formula: original - ((discount / 100) * original)
     const original = parseInt(originalInputElem.value);
@@ -30,18 +33,23 @@ const displayCalculations = (newPriceParam, savingsParam) => {
         const noCalcsElem = document.getElementById("no-calcs-cont");
         const resultsElem = document.getElementById("results-cont");
 
-        noCalcsElem.classList.toggle("display-none"); //hides the default view
+        noCalcsElem.classList.toggle("display-none"); //shows the savings
         resultsElem.classList.toggle("display-none"); //shows the savings
     }
 
 }
 
-const clearInput = () => {
-    originalInputElem.value = "";
-    discountInputElem.value = "";
-}
 
-form.addEventListener("submit", calculateAndDisplayDiscount);
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    removeErrorMsgs();
+    validateInput();
+
+    if (inputValidated) {
+        calculateAndDisplayDiscount();
+    }
+});
 
 clearBtn.addEventListener("click", clearInput);
 

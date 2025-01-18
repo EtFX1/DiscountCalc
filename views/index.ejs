@@ -5,16 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Homepage</title>
         <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
-        <script defer type="module" src="../js/index.js"></script>
+        <script
+            defer
+            type="module"
+            src="../js/calc-and-display-discount.js"
+        ></script>
         <style>
             label,
-            input {
+            input,
+            strong {
                 display: block;
                 margin-bottom: 10px;
             }
 
             .display-none {
                 display: none;
+            }
+
+            #err-msg-1,
+            #err-msg-2 {
+                color: red;
+            }
+
+            #calc-btn,
+            #clear-btn {
+                margin-bottom: 20px;
             }
         </style>
     </head>
@@ -25,25 +40,35 @@
             <!-- !form cont -->
             <form id="form">
                 <!-- original price input -->
-                <label for="original-price">Original Price (£)</label>
-                <input
-                    id="original-price"
-                    required
-                    type="text"
-                    name="original-input"
-                />
+                <section id="original-cont">
+                    <label for="original-price">Original Price (£)</label>
+                    <input
+                        id="original-price"
+                        required
+                        type="text"
+                        name="original-input"
+                    />
+                    <strong id="err-msg-1" class="display-none"
+                        >Please type in a number</strong
+                    >
+                </section>
 
                 <!-- discount input -->
-                <label for="discount-price">Discount (%)</label>
-                <input
-                    id="discount-price"
-                    required
-                    type="text"
-                    name="discount-input"
-                />
+                <section id="discount-cont">
+                    <label for="discount-price">Discount (%)</label>
+                    <input
+                        id="discount-price"
+                        required
+                        type="text"
+                        name="discount-input"
+                    />
+                    <strong id="err-msg-2" class="display-none"
+                        >Please type in a number</strong
+                    >
+                </section>
 
                 <!-- buttons -->
-                <button type="submit">Calculate</button>
+                <button id="calc-btn" type="submit">Calculate</button>
                 <button id="clear-btn" type="button">Clear</button>
             </form>
 
@@ -54,6 +79,8 @@
 
             <!-- !results cont -->
             <div id="results-cont" class="display-none">
+                <button type="button">History</button>
+
                 <!-- new price -->
                 <div>
                     <h2>New Price</h2>
