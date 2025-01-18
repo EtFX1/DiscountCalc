@@ -1,7 +1,11 @@
+import { sendDataToServer as sendDataToBackend } from "./send-data-to-server.js";
+
 import { inputValidated, validateInput } from "./validate-input.js";
+
 import { removeErrorMsgs, clearInput } from "./clearing-functions.js";
 
-const form = document.getElementById("form");
+export const form = document.getElementById("form");
+
 export const originalInputElem = document.getElementById("original-price");
 export const discountInputElem = document.getElementById("discount-price");
 const clearBtn = document.getElementById("clear-btn");
@@ -24,8 +28,9 @@ const displayCalculations = (newPriceParam, savingsParam) => {
     const newPriceElem = document.getElementById("new-price");
     const savingsElem = document.getElementById("savings-price");
 
-    newPriceElem.textContent = `£${newPriceParam}`;
-    savingsElem.textContent = `£${savingsParam}`;
+    newPriceElem.textContent = newPriceParam;
+    savingsElem.textContent = savingsParam;
+
     hideDefaultView();
 
 
@@ -48,6 +53,7 @@ form.addEventListener("submit", function (event) {
 
     if (inputValidated) {
         calculateAndDisplayDiscount();
+        sendDataToBackend();
     }
 });
 
