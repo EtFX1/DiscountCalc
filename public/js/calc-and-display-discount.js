@@ -5,6 +5,7 @@ import { inputValidated, validateInput } from "./validate-input.js";
 import { removeErrorMsgs, clearInput } from "./clearing-functions.js";
 
 export const form = document.getElementById("form");
+
 export const originalInputElem = document.getElementById("original-price");
 export const discountInputElem = document.getElementById("discount-price");
 const clearBtn = document.getElementById("clear-btn");
@@ -29,6 +30,7 @@ const displayCalculations = (newPriceParam, savingsParam) => {
 
     newPriceElem.textContent = newPriceParam;
     savingsElem.textContent = savingsParam;
+
     hideDefaultView();
 
 
