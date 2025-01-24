@@ -11,6 +11,7 @@
             src="../js/calc-and-display-discount.js"
         ></script>
         <style>
+            form,
             label,
             input,
             strong {
@@ -27,13 +28,27 @@
                 color: red;
             }
 
+            form,
+            #results-cont {
+                border: 2px solid orange;
+            }
+
             #calc-btn,
             #clear-btn {
                 margin-bottom: 20px;
             }
+
+            @media only screen and (min-width: 900px) {
+                #history-btn,
+                #go-back-btn {
+                    display: none;
+                }
+            }
         </style>
     </head>
     <body>
+        <!-- history button that's only displayed on mobile devices -->
+        <button id="history-btn">History</button>
         <h1>Discount Calculator</h1>
 
         <article>
@@ -73,25 +88,31 @@
             </form>
 
             <!-- !no calculations yet (default) -->
-            <div id="no-calcs-cont" class="">
+            <div id="no-calcs-cont" class="display-none">
                 <h2>No calculations yet!</h2>
+                <!-- img here -->
             </div>
 
             <!-- !results cont -->
             <div id="results-cont" class="display-none">
-                <button type="button">History</button>
+                <!-- go back button (created by js) and history button -->
+                <section id="results-btns-cont">
+                    <button type="button">History</button>
+                </section>
 
-                <!-- new price -->
-                <div>
-                    <h2>New Price</h2>
-                    <p>£<span id="new-price"></span></p>
-                </div>
+                <section>
+                    <!-- new price -->
+                    <div>
+                        <h2>New Price</h2>
+                        <p>£<span id="new-price"></span></p>
+                    </div>
 
-                <!-- savings -->
-                <div>
-                    <h2>Savings</h2>
-                    <p>£<span id="savings-price"></span></p>
-                </div>
+                    <!-- savings -->
+                    <div>
+                        <h2>Savings</h2>
+                        <p>£<span id="savings-price"></span></p>
+                    </div>
+                </section>
             </div>
         </article>
     </body>

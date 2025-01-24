@@ -7,14 +7,14 @@ export async function sendDataToServer() {
     const formData = new FormData(form);
     const originalInput = formData.get("original-input");
     const discountInput = formData.get("discount-input");
-    const discountResult = document.getElementById("new-price").textContent;
+    const result = document.getElementById("new-price").textContent;
 
     const requestObj = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ originalInput, discountInput, discountResult })
+        body: JSON.stringify({ originalInput, discountInput, result })
     }
 
     try {
