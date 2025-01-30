@@ -1,4 +1,4 @@
-//file: contains functions for clearing things from the screen
+//-- Contains smaller functions that perform smaller tasks things e.g clearing input
 import { originalInputElem, discountInputElem } from "./calc-and-display-discount.js";
 import { errMsg1, errMsg2 } from "./validate-input.js";
 
@@ -16,4 +16,14 @@ export const clearInput = () => {
     removeErrorMsgs();
     originalInputElem.value = "";
     discountInputElem.value = "";
+}
+
+//creates the "go back" button for mobile
+export function createBackButtonForMobile() {
+    const resultsBtnsCont = document.getElementById("results-btns-cont");
+    const backBtn = document.createElement("button");
+    backBtn.setAttribute("id", "go-back-btn");
+    backBtn.setAttribute("type", "button");
+    backBtn.innerText = "Go Back";
+    resultsBtnsCont.prepend(backBtn);
 }

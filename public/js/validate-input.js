@@ -1,3 +1,5 @@
+//-- Module description: Validates the user's inputs and does error handling.
+
 import { originalInputElem, discountInputElem } from "./calc-and-display-discount.js";
 export const errMsg1 = document.getElementById("err-msg-1");
 export const errMsg2 = document.getElementById("err-msg-2");
