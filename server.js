@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 import history from "./routes/history-route.js";
+import { errorHandler } from "./middleware/error.js";
+import { notFound } from "./middleware/notFound.js"
 
 
 //send back static files (e.g images or static html)
@@ -19,10 +21,13 @@ app.get("/api/home", (req, res) => {
     res.render("index");
 });
 
-
 //routes
 app.use("/api/history", history);
 
+app.use(notFound);
+
+//our own error handler middleware
+app.use(errorHandler);
 
 app.listen(port, () => {
     `App is listening on port ${port}`
