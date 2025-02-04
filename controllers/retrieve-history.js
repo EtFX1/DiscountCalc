@@ -7,14 +7,14 @@ const db = new Database('app.db');
 export const retrieveHistory = (req, res, next) => {
 
     try {
-        const preparedStmt = db.prepare("SELCT * FROM user_input_data");
+        const preparedStmt = db.prepare("SELECT * FROM user_input_data");
         const allHistory = preparedStmt.all(); //e.g [{ id: 1, original_price: 90, discount: 30, new_price: 60 }, etc]
 
         res.status(200).json({ history: allHistory }); //returns all the history to the user
     } catch (error) {
         error.status = 500;
         //below is the error message
-        return next({ err: 'Error retrieving all the history' });
+        return next(error);
     }
 
 

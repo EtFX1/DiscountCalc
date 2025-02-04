@@ -13,6 +13,7 @@ export const storeHistory = (req, res, next) => {
 
     try {
         const { originalInput, discountInput, result } = req.body;
+        console.log(req.body);
 
         const preparedStmt = db.prepare("INSERT INTO user_input_data (original_price, discount, new_price) VALUES (?, ?, ?)");
 
