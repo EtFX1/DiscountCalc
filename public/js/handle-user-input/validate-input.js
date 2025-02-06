@@ -1,4 +1,4 @@
-//... Contains all elements that handle events. It's the entry point for the app.
+//... Module description: Contains event handler's for the user form and code for validating their input
 import { removeErrorMsgs, clearInput } from "../utility-functions.js";
 
 import { sendDataToServer } from "./send-data-to-server.js";

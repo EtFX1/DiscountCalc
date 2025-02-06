@@ -1,6 +1,7 @@
 // ...Contains smaller functions that perform smaller tasks things e.g clearing input
 import { originalInputElem, discountInputElem } from "./handle-user-input/calc-and-display-discount.js"
 import { errMsg1, errMsg2 } from "./handle-user-input/validate-input.js";
+import { noCalcsCont, resultsCont } from "./handle-user-input/calc-and-display-discount.js";
 
 //removes any lingering error messages
 export const removeErrorMsgs = () => {
@@ -16,5 +17,8 @@ export const clearInput = () => {
     removeErrorMsgs();
     originalInputElem.value = "";
     discountInputElem.value = "";
+
+    resultsCont.classList.add("display-none"); //hide the results container
+    noCalcsCont.classList.remove("display-none"); //show the default container
 }
 

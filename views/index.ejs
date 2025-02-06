@@ -5,16 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Homepage</title>
         <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+        <!--js file 1 -->
+        <script defer type="module" src="../js/index.js"></script>
+
+        <!-- file 2 -->
         <script
             defer
             type="module"
             src="../js/handle-user-input/validate-input.js"
         ></script>
-        <script
-            defer
-            type="module"
-            src="../js/manage-history/render-history.js"
-        ></script>
+
         <style>
             form,
             label,
@@ -148,15 +148,18 @@
         </article>
 
         <dialog id="modal" autofocus>
+            <!-- *top buttons -->
             <button type="button">Clear</button>
             <button id="close-btn" type="button">Close</button>
 
+            <!-- *no history yet cont (shown by default)-->
             <article id="empty-history-cont">No history yet!</article>
 
-            <article id="history-cont">
+            <!-- *no history list cont -->
+            <article id="history-list-cont" class="display-none">
                 <h2>You searched...</h2>
 
-                <div id="history-list"></div>
+                <ul id="history-list"></ul>
             </article>
         </dialog>
     </body>

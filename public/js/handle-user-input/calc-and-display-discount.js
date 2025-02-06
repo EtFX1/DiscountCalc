@@ -1,7 +1,8 @@
-//... Module description: Calculates a discount and display the result. Also contains event handler for the calculate form. 
-
+//... Module description: Calculates a discount and display the result to the user
 export const originalInputElem = document.getElementById("original-price");
 export const discountInputElem = document.getElementById("discount-price");
+export const noCalcsCont = document.getElementById("no-calcs-cont");
+export const resultsCont = document.getElementById("results-cont");
 
 //calculates the discount and cost savings
 export const calculateAndDisplayDiscount = () => {
@@ -26,11 +27,8 @@ const displayCalculations = (newPriceParam, savingsParam) => {
     hideDefaultView();
 
     function hideDefaultView() {
-        const resultsElem = document.getElementById("results-cont");
-        const noCalcsElem = document.getElementById("no-calcs-cont");
-
-        noCalcsElem.classList.toggle("display-none"); //hides the default container
-        resultsElem.classList.toggle("display-none"); //shows the savings container
+        resultsCont.classList.remove("display-none"); //shows the savings container
+        noCalcsCont.classList.add("display-none"); //hides the default container
     }
 };
 
