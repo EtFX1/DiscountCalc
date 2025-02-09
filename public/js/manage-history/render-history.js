@@ -11,8 +11,12 @@ export function checkIfThereIsHistoryToDisplay(histArr) {
     //check if the data from the server is populated with any history
     if (histArr.length > 0) {
         histCont.classList.remove("display-none"); //show the list of history
-        emptyHistCont.classList.add("display-none"); //remove the default container
+        emptyHistCont.classList.add("display-none"); //hide the default container
         serverHasHistory.value = true;
+    } else {
+        histCont.classList.add("display-none"); //hide the list of history
+        emptyHistCont.classList.remove("display-none"); //show the default container
+        serverHasHistory.value = false;
     }
 }
 

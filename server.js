@@ -33,6 +33,4 @@ app.listen(port, () => {
     `App is listening on port ${port}`
 });
 
-/*
 
-*/

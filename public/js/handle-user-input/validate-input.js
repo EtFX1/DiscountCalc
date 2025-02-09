@@ -7,6 +7,8 @@ import { calculateAndDisplayDiscount } from "./calc-and-display-discount.js"
 
 import { originalInputElem, discountInputElem } from "./calc-and-display-discount.js";
 
+export const form = document.getElementById("form");
+const clearBtn = document.getElementById("clear-btn");
 export const errMsg1 = document.getElementById("err-msg-1");
 export const errMsg2 = document.getElementById("err-msg-2");
 export let inputValidated = false;
@@ -23,11 +25,8 @@ export const validateInput = () => {
     return inputValidated;
 }
 
-
-export const form = document.getElementById("form");
-
-//*form
-form.addEventListener("submit", function (event) {
+//*form which takes in the user's input and calculates the discount
+form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     removeErrorMsgs();
@@ -40,8 +39,7 @@ form.addEventListener("submit", function (event) {
 });
 
 
-//*clear button
-const clearBtn = document.getElementById("clear-btn");
+//*clear button which clears the user's input
 clearBtn.addEventListener("click", clearInput);
 
 

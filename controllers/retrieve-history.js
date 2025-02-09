@@ -16,8 +16,6 @@ export const retrieveHistory = (req, res, next) => {
         //below is the error message
         return next(error);
     }
-
-
 }
 
 

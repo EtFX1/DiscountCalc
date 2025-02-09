@@ -15,6 +15,20 @@
             src="../js/handle-user-input/validate-input.js"
         ></script>
 
+        <!-- file 3 -->
+        <script
+            defer
+            type="module"
+            src="../js/manage-history/delete-single-history.js"
+        ></script>
+
+        <!-- file 4 -->
+        <script
+            defer
+            type="module"
+            src="../js/manage-history/clear-history.js"
+        ></script>
+
         <style>
             form,
             label,
@@ -149,7 +163,7 @@
 
         <dialog id="modal" autofocus>
             <!-- *top buttons -->
-            <button type="button">Clear</button>
+            <button id="clear-history-btn" type="button">Clear</button>
             <button id="close-btn" type="button">Close</button>
 
             <!-- *no history yet cont (shown by default)-->
@@ -161,6 +175,18 @@
 
                 <ul id="history-list"></ul>
             </article>
+        </dialog>
+
+        <dialog id="confirm-single-deletion-modal">
+            <h2>Are you sure about this deletion?</h2>
+            <button id="single-deletion-yes-btn">Yes</button>
+            <button id="single-deletion-no-btn">No</button>
+        </dialog>
+
+        <dialog id="clear-history-modal">
+            <h2>Are you sure you want to clear your history?</h2>
+            <button id="clear-history-yes-btn">Yes</button>
+            <button id="clear-history-no-btn">No</button>
         </dialog>
     </body>
 </html>
