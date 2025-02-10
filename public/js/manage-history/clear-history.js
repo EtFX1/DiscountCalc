@@ -34,6 +34,7 @@ async function clearHistoryFromServer() {
         const request = fetch("http://localhost:3000/api/history/delete-all-history/", {
             method: "DELETE"
         });
+        console.log(request.status);
 
         if (!request.ok) {
             throw new Error(`HTTP error! Status: ${request.status}`); // Manually throw an error
