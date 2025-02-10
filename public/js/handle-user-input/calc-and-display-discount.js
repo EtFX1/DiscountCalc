@@ -1,4 +1,5 @@
 //... Module description: Calculates a discount and display the result to the user
+
 export const originalInputElem = document.getElementById("original-price");
 export const discountInputElem = document.getElementById("discount-price");
 export const noCalcsCont = document.getElementById("no-calcs-cont");

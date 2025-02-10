@@ -1,6 +1,6 @@
 //...Module description: Delete a single piece of history when user clicks on "delete button"
 
-import { displayHistoryIfAny } from "../index.js";
+// import { displayHistoryIfAny } from "../runOnLoad.js";
 import { historyList } from "./render-history.js";
 
 //confirm single deletion modal and buttons

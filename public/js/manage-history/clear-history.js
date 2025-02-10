@@ -1,6 +1,6 @@
 //...Module description: Clear history when user clicks on "clear" button
 
-import { displayHistoryIfAny } from "../index.js";
+import { renderHistory } from "./render-history.js";
 
 
 //confirm clearing history modal and buttons
@@ -18,8 +18,8 @@ clearHistoryBtn.addEventListener("click", () => {
 //"yes" button event handler which will clear the history from the backend and display the default container when clicked
 clearHistoryModalYesBtn.addEventListener("click", () => {
     clearHistoryFromServer();
-    displayHistoryIfAny();
-    clearHistoryBtn.classList.add("display-none");
+    renderHistory();
+    clearHistoryBtn.classList.add("display-none"); //hide the clear button 
     clearHistoryModal.close();
 });
 
@@ -41,7 +41,7 @@ async function clearHistoryFromServer() {
 
         console.log(`All history deleted successfully`);
     } catch (error) {
-        console.error(`Error deleting all history`);
         console.error(error);
+        alert("Error deleting all history");
     }
 }

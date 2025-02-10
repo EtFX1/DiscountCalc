@@ -57,94 +57,81 @@
                 margin-bottom: 20px;
             }
 
-            @media only screen and (min-width: 375px) {
-                /* hide the desktop button on mobile screens */
-                #desktop-history-btn {
-                    display: none;
-                }
-            }
-
-            @media only screen and (min-width: 900px) {
-                /* hide these mobile buttons on desktop screens */
-                #mobile-history-btn,
-                #go-back-btn {
-                    display: none;
-                }
-
-                /* hide the desktop button on mobile screens */
-                #desktop-history-btn {
-                    display: block;
-                }
-            }
-
             dialog {
                 padding: 100px;
             }
         </style>
     </head>
     <body>
-        <article id="parent-cont">
-            <!-- history button that's only displayed on mobile devices -->
-            <button id="mobile-history-btn" class="history-btn">History</button>
-            <h1>Discount Calculator</h1>
+        <!-- !MOBILE CONTAINER -->
+        <article id="mobile-cont" class="parent-cont display-none">
+            <!-- buttons container -->
+            <div id="mobile-buttons-cont">
+                <button id="mobile-history-btn" class="history-btn">
+                    History
+                </button>
 
-            <!-- !form cont -->
-            <form id="form">
-                <!-- original price input -->
-                <section id="original-cont">
-                    <label for="original-price">Original Price (£)</label>
-                    <input
-                        id="original-price"
-                        required
-                        type="text"
-                        name="original-input"
-                    />
-                    <strong id="err-msg-1" class="display-none"
-                        >Please type in a number</strong
-                    >
-                </section>
+                <button id="go-back-btn" type="button">Go Back</button>
+            </div>
 
-                <!-- discount input -->
-                <section id="discount-cont">
-                    <label for="discount-price">Discount (%)</label>
-                    <input
-                        id="discount-price"
-                        required
-                        type="text"
-                        name="discount-input"
-                    />
-                    <strong id="err-msg-2" class="display-none"
-                        >Please type in a number</strong
-                    >
-                </section>
+            <!-- user output (either it's the form by default, results, or history) -->
+            <div id="user-output"></div>
+        </article>
 
-                <!-- buttons -->
-                <button id="calc-btn" type="submit">Calculate</button>
-                <button id="clear-btn" type="button">Clear</button>
-            </form>
+        <!-- !DESKTOP CONTAINER -->
+        <article id="desktop-cont" class="parent-cont">
+            <div id="form-and-title-cont">
+                <h1>Discount Calculator</h1>
 
-            <!-- !no calculations yet (default) -->
+                <!-- form cont -->
+                <form id="form">
+                    <!-- original price input -->
+                    <section id="original-cont">
+                        <label for="original-price">Original Price (£)</label>
+                        <input
+                            id="original-price"
+                            required
+                            type="text"
+                            name="original-input"
+                        />
+                        <strong id="err-msg-1" class="display-none"
+                            >Please type in a number</strong
+                        >
+                    </section>
+
+                    <!-- discount input -->
+                    <section id="discount-cont">
+                        <label for="discount-price">Discount (%)</label>
+                        <input
+                            id="discount-price"
+                            required
+                            type="text"
+                            name="discount-input"
+                        />
+                        <strong id="err-msg-2" class="display-none"
+                            >Please type in a number</strong
+                        >
+                    </section>
+
+                    <!-- buttons -->
+                    <button id="calc-btn" type="submit">Calculate</button>
+                    <button id="clear-btn" type="button">Clear</button>
+                </form>
+            </div>
+
+            <!-- desktop history button -->
+            <button type="button" id="desktop-history-btn" class="history-btn">
+                History
+            </button>
+
+            <!-- no calculations yet (default) -->
             <div id="no-calcs-cont">
                 <h2>No calculations yet!</h2>
                 <!-- img here -->
             </div>
 
-            <!-- !results cont -->
+            <!-- results cont -->
             <div id="results-cont" class="display-none">
-                <section id="results-btns-cont">
-                    <!-- go back button (created by js) and history button -->
-                    <button id="go-back-btn" type="button">Go Back</button>
-
-                    <!-- desktop history button -->
-                    <button
-                        type="button"
-                        id="desktop-history-btn"
-                        class="history-btn"
-                    >
-                        History
-                    </button>
-                </section>
-
                 <section>
                     <!-- new price cont-->
                     <div>
@@ -162,14 +149,14 @@
         </article>
 
         <dialog id="modal" autofocus>
-            <!-- *top buttons -->
+            <!-- top buttons -->
             <button id="clear-history-btn" type="button">Clear</button>
             <button id="close-btn" type="button">Close</button>
 
-            <!-- *no history yet cont (shown by default)-->
+            <!-- no history yet cont (shown by default)-->
             <article id="empty-history-cont">No history yet!</article>
 
-            <!-- *no history list cont -->
+            <!-- no history list cont -->
             <article id="history-list-cont" class="display-none">
                 <h2>You searched...</h2>
 
