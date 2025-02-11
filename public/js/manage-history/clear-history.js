@@ -1,7 +1,6 @@
 //...Module description: Clear history when user clicks on "clear" button
 
-import { renderHistory } from "./render-history.js";
-
+import { renderHistoryOrDefault } from "./render-history.js";
 
 //confirm clearing history modal and buttons
 export const clearHistoryBtn = document.getElementById("clear-history-btn");
@@ -16,9 +15,9 @@ clearHistoryBtn.addEventListener("click", () => {
 
 
 //"yes" button event handler which will clear the history from the backend and display the default container when clicked
-clearHistoryModalYesBtn.addEventListener("click", () => {
-    clearHistoryFromServer();
-    renderHistory();
+clearHistoryModalYesBtn.addEventListener("click", async () => {
+    await clearHistoryFromServer();
+    await renderHistoryOrDefault();
     clearHistoryBtn.classList.add("display-none"); //hide the clear button 
     clearHistoryModal.close();
 });
@@ -29,9 +28,8 @@ clearHistoryModalNoBtn.addEventListener("click", () => {
 })
 
 async function clearHistoryFromServer() {
-
     try {
-        const request = fetch("http://localhost:3000/api/history/delete-all-history/", {
+        const request = await fetch("http://localhost:3000/api/history/delete-all-history/", {
             method: "DELETE"
         });
         console.log(request.status);

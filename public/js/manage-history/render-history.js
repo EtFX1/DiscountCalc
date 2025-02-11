@@ -1,6 +1,8 @@
 //...Module description: Contains code for rendering the "history" sent from the backend (which is sent in the form of an array of objects)
 
-import { returnDataFromServer } from "./fetch-history.js"
+import { returnDataFromServer } from "./fetch-history.js";
+
+import { clearHistoryBtn } from "./clear-history.js"
 
 export const historyList = document.getElementById("history-list");
 
@@ -9,17 +11,20 @@ const histCont = document.getElementById("history-list-cont");
 
 
 //renders user's history if they have any stored
-export async function renderHistory() {
+export async function renderHistoryOrDefault() {
 
     const { historyArr, userHasStoredHistory } = await returnDataFromServer(); // gets data from the server
 
     if (userHasStoredHistory) {
         emptyHistCont.classList.add("display-none"); //hide the default display
         histCont.classList.remove("display-none"); //show the list of history
+        clearHistoryBtn.classList.remove("display-none"); //show "clear history" button
         renderHistoryItemsAsHTML(historyArr);
     } else {
         histCont.classList.add("display-none"); //hide the list of history
         emptyHistCont.classList.remove("display-none"); //show the default display
+        clearHistoryBtn.classList.add("display-none"); //hide "clear history" button
+
     }
 }
 
