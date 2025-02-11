@@ -1,10 +1,8 @@
-//-- Module description: Sends form to the server
-
-
-import { form } from "./calc-and-display-discount.js";
+//... Module description: Sends form data (input and the result) to the server
+import { form } from "./handle-user-input.js";
 export async function sendDataToServer() {
 
-    const formData = new FormData(form);
+    const formData = new FormData(form); //gives you access to all the data in a form
     const originalInput = formData.get("original-input");
     const discountInput = formData.get("discount-input");
     const result = document.getElementById("new-price").textContent;
@@ -18,13 +16,14 @@ export async function sendDataToServer() {
     }
 
     try {
-        const req = await fetch("http://localhost:3000/", requestObj);
+        const req = await fetch("http://localhost:3000/api/history/store-history", requestObj);
 
         if (!req.ok) {
-            throw new Error("User data couldn't be sent to the server");
+            throw new Error(`There's an HTTP error of ${req.status}`);
         }
     } catch (error) {
-        console.log("Error sending data");
+        console.error("Error sending data");
+        console.error(error);
     }
 
 }

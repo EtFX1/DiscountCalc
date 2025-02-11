@@ -11,10 +11,10 @@ export const deleteSingleHistory = (req, res, next) => {
 
     // > 0 means that data was inserted successfully
     if (execution.changes > 0) {
-        res.status(204) //? 204 is a successful request with no data to return. Therefore, no json will be sent if we call ".json()"
+        res.sendStatus(204); //? 204 is a successful request with no data to return. Therefore, no json will be sent if we call ".json()"
     } else {
         const error = new Error(`Error deleting message with an id of ${id}`)
-        error.status = 500; //sets the status the error handler will use (which is already caught by )
+        error.status = 500; //sets the status the error handler will use (which is already caught by the error handler anyway)
         return next(error);
     }
 
@@ -25,5 +25,5 @@ export const deleteSingleHistory = (req, res, next) => {
 export const deleteAllHistory = (req, res, next) => {
     const preparedStmt = db.prepare("DELETE from user_input_data");
     preparedStmt.run();
-    res.status(204) //? 204 is a successful request with no data to return. Therefore, no json will be sent if we call ".json()"
+    res.sendStatus(204) //? 204 is a successful request with no data to return. Therefore, no json will be sent if we call ".json()"
 }
