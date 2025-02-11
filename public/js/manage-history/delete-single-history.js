@@ -1,7 +1,7 @@
 //...Module description: Delete a single piece of history when user clicks on "delete button"
 
 // import { displayHistoryIfAny } from "../runOnLoad.js";
-import { historyList } from "./render-history.js";
+import { historyList, renderHistoryOrDefault } from "./render-history.js";
 
 //confirm single deletion modal and buttons
 const confirmSingleDeletionModal = document.getElementById("confirm-single-deletion-modal");
@@ -17,22 +17,21 @@ historyList.addEventListener("click", (event) => {
     //selects the parent element of the clicked
     let deleteBtn = event.target;
     if (deleteBtn.className === "delete-history-item-btn") {
-        liToDelete = deleteBtn.parentElement;
+        liToDelete = deleteBtn.parentElement; // getting the correct history item to delete
         confirmSingleDeletionModal.showModal(); //shows the confirmation modal asking the user to confirm "yes" or "no" when they try to delete
     }
 });
 
 //deletes data wen the yes button is clicked
-singleDeletionYesBtn.addEventListener("click", () => {
-    deleteSingleHistoryFromServer(liToDelete.id);
-    displayHistoryIfAny(); //displays remaining history
+singleDeletionYesBtn.addEventListener("click", async () => {
+    await deleteSingleHistoryFromServer(liToDelete.id);
+    renderHistoryOrDefault(); //displays remaining history
     confirmSingleDeletionModal.close();
-
 });
 
 //closes modal when "no" button is clicked
 singleDeletionNoBtn.addEventListener("click", () => {
-    confirmSingleDeletionModal.showModal(); //shows the confirmation modal asking the user to confirm "yes" or "no" when they try to delete
+    confirmSingleDeletionModal.close(); //shows the confirmation modal asking the user to confirm "yes" or "no" when they try to delete
 });
 
 async function deleteSingleHistoryFromServer(id) {

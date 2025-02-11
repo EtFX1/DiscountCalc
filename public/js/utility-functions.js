@@ -1,9 +1,8 @@
 // ...Contains smaller functions that perform smaller tasks things e.g clearing input
 import { originalInputElem, discountInputElem } from "./handle-user-input/calc-and-display-discount.js"
-import { errMsg1, errMsg2 } from "./handle-user-input/validate-input.js";
+import { errMsg1, errMsg2 } from "./handle-user-input/handle-user-input.js";
 import { noCalcsCont, resultsCont } from "./handle-user-input/calc-and-display-discount.js";
-import { returnDataFromServer } from "./manage-history/fetch-history.js";
-import { clearHistoryBtn } from "./manage-history/clear-history.js";
+
 
 //removes any lingering error messages
 export function removeErrorMsgs() {
@@ -22,17 +21,6 @@ export function clearInput() {
 
     resultsCont.classList.add("display-none"); //hide the results container
     noCalcsCont.classList.remove("display-none"); //show the default container
-}
-
-const { historyArr, userHasStoredHistory } = await returnDataFromServer(); // gets data from the server
-
-export function showClearButtonIfServerHasHistory() {
-    //hides the clear history button if there's no history to clear
-    if (userHasStoredHistory) {
-        clearHistoryBtn.classList.remove("display-none"); //show "clear history" button
-    } else {
-        clearHistoryBtn.classList.add("display-none"); //hide "clear history" button
-    }
 }
 
 
