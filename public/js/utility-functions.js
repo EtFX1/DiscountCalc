@@ -1,18 +1,17 @@
 // ...Contains smaller functions that perform smaller tasks things e.g clearing input
 import { noCalcsCont, resultsCont } from "./handle-calculation/calc-and-display-discount.js";
 
+import { originalInputElem, discountInputElem } from "./index.js";
 
 //clears all the input when the user clicks 
 export function clearInput() {
-    removeErrorMsgs();
+    removeLingeringErrorMsgs();
     originalInputElem.value = "";
     discountInputElem.value = "";
 
     resultsCont.classList.add("display-none"); //hide the results container
     noCalcsCont.classList.remove("display-none"); //show the default container
 }
-
-
 
 export function removeLingeringErrorMsgs() {
     //remove lingering error messages
