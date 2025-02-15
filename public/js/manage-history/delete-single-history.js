@@ -1,4 +1,4 @@
-//...Module description: Delete a single piece of history when user clicks on "delete button"
+//...Module description: Has event handlers and functions for deleting a single piece of history
 
 // import { displayHistoryIfAny } from "../runOnLoad.js";
 import { historyList, renderHistoryOrDefault } from "./render-history.js";

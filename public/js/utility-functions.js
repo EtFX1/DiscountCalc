@@ -1,21 +1,11 @@
 // ...Contains smaller functions that perform smaller tasks things e.g clearing input
-import { originalInputElem, discountInputElem } from "./handle-user-input/calc-and-display-discount.js"
-import { errMsg1, errMsg2 } from "./handle-user-input/handle-user-input.js";
-import { noCalcsCont, resultsCont } from "./handle-user-input/calc-and-display-discount.js";
+import { noCalcsCont, resultsCont } from "./handle-calculation/calc-and-display-discount.js";
 
-
-//removes any lingering error messages
-export function removeErrorMsgs() {
-    if (!errMsg1.classList.contains("display-none")) { //if displayed
-        errMsg1.classList.toggle("display-none") //get rid of it
-    } else if (!errMsg2.classList.contains("display-none")) {
-        errMsg2.classList.toggle("display-none")
-    }
-}
+import { originalInputElem, discountInputElem } from "./index.js";
 
 //clears all the input when the user clicks 
 export function clearInput() {
-    removeErrorMsgs();
+    removeLingeringErrorMsgs();
     originalInputElem.value = "";
     discountInputElem.value = "";
 
@@ -23,6 +13,16 @@ export function clearInput() {
     noCalcsCont.classList.remove("display-none"); //show the default container
 }
 
+export function removeLingeringErrorMsgs() {
+    //remove lingering error messages
+    const errorMessages = document.querySelectorAll(".err-msg");
 
+
+    if (errorMessages.length !== 0) {
+        errorMessages.forEach((errMsg) => {
+            errMsg.remove();
+        });
+    }
+}
 
 

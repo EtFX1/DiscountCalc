@@ -1,17 +1,11 @@
 //... Module description: Calculates a discount and display the result to the user
-
-export const originalInputElem = document.getElementById("original-price");
-export const discountInputElem = document.getElementById("discount-price");
 export const noCalcsCont = document.getElementById("no-calcs-cont");
 export const resultsCont = document.getElementById("results-cont");
 
 //calculates the discount and cost savings
-export const calculateAndDisplayDiscount = () => {
+export const calculateAndDisplayDiscount = (original, discount) => {
 
     // formula: original - ((discount / 100) * original)
-    const original = parseInt(originalInputElem.value);
-    const discount = parseInt(discountInputElem.value);
-
     const newPrice = original - ((discount / 100) * original);
     const savings = original - newPrice;
 

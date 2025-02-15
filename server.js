@@ -16,10 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//entry point
-app.get("/api/home", (req, res) => {
-    res.render("index");
-});
+app.use(express.static("public")); //serves the static HTML file
 
 //routes
 app.use("/api/history", history);
