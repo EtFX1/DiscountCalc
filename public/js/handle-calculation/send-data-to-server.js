@@ -1,5 +1,6 @@
-//... Module description: Sends form data (input and the result) to the server
-import { form } from "./handle-user-input.js";
+//... Module description: Contains functions that send form data (input and the result) to the server
+
+import { form } from "../index.js";
 export async function sendDataToServer() {
 
     const formData = new FormData(form); //gives you access to all the data in a form

@@ -8,13 +8,6 @@
         <!--js file 1 -->
         <script defer type="module" src="../js/index.js"></script>
 
-        <!-- file 2 -->
-        <script
-            defer
-            type="module"
-            src="../js/handle-user-input/handle-user-input.js"
-        ></script>
-
         <!-- file 3 -->
         <script
             defer
@@ -42,8 +35,7 @@
                 display: none;
             }
 
-            #err-msg-1,
-            #err-msg-2 {
+            .err-msg {
                 color: red;
             }
 
@@ -94,9 +86,6 @@
                             type="text"
                             name="original-input"
                         />
-                        <strong id="err-msg-1" class="display-none"
-                            >Please type in a number</strong
-                        >
                     </section>
 
                     <!-- discount input -->
@@ -108,9 +97,6 @@
                             type="text"
                             name="discount-input"
                         />
-                        <strong id="err-msg-2" class="display-none"
-                            >Please type in a number</strong
-                        >
                     </section>
 
                     <!-- buttons -->
